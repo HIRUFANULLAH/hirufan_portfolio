@@ -2188,7 +2188,7 @@ Widget _buildSkillFrontSide(int maxLine, int index, ScrollControllerX controller
       ],
     ),
     child: Padding(
-      padding: const EdgeInsets.all(25.0),
+      padding: EdgeInsets.all(14),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -2206,14 +2206,16 @@ Widget _buildSkillFrontSide(int maxLine, int index, ScrollControllerX controller
             textColor: primaryColor,
             fontSize: 32,
             fontWeight: FontWeight.bold,
+
           ),
           Gap(20),
           Expanded(
             child: MyText(
               text: controller.skillsList[index].paragraph.toString(),
               textColor: Colors.white,
-              fontSize: 20,
+              fontSize: 18,
               maxLines: maxLine,
+              // textAlign: TextAlign.center,
               // overFlow: TextOverflow.ellipsis,
             ),
           ),
@@ -2350,13 +2352,13 @@ Widget _buildSkillBackSide(int index, ScrollControllerX controller) {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: const EdgeInsets.all(14.0),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               MyText(
-                text: "${controller.skillsList[index].heading}",
+                text: controller.skillsList[index].heading,
                 textColor: primaryColor,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -2365,7 +2367,7 @@ Widget _buildSkillBackSide(int index, ScrollControllerX controller) {
               MyText(
                 text: controller.skillsList[index].paragraph.toString(),
                 textColor: Colors.white,
-                fontSize: 20,
+                fontSize: 18,
                 // maxLines: 5,
                 // overFlow: TextOverflow.ellipsis,
               ),
@@ -2494,7 +2496,7 @@ Widget _buildPortfolioFrontSide(int index, ScrollControllerX controller, BuildCo
       ],
     ),
     child: Padding(
-      padding: const EdgeInsets.only(top: 30.0, left: 30, right: 30),
+      padding: EdgeInsets.only(top: Responsive.isMobile(context)?14: 30.0, left: Responsive.isMobile(context)?14: 30, right: Responsive.isMobile(context)?14: 30),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

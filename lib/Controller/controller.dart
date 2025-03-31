@@ -51,11 +51,13 @@ import 'package:video_player/video_player.dart';
       screen3Key: 810.0 + 1000.0, //product
       screen4Key: 810.0 + 850.0 + 1000.0, //service
       screen5Key: 810.0 + 850.0 + 899.0 + 1000.0, //contact us
-      */ /*screen1Key: 0, //home
+      */
+/*screen1Key: 0, //home
       screen2Key: 1080.0, //about us
       screen3Key: 1080.0 + 1080.0, //product
       screen4Key: 1080.0 + 1080.0 + 1080.0, //service
-      screen5Key: 1080.0 + 1080.0 + 1080.0 + 1080.0, //contact us*/ /*
+      screen5Key: 1080.0 + 1080.0 + 1080.0 + 1080.0, //contact us*/
+/*
     };
     scrollController.addListener(scrollListener);
     //============================================================
