@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                                       text: "Flutter developer",
                                       textColor: primaryColor,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 45,
+                                      fontSize: 40,
                                     ),
                                     Gap(10),
                                     Container(
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: 28, vertical: 11.5),
+                                                horizontal: 26, vertical: 11.5),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                 BorderRadius.circular(8),
@@ -682,44 +682,43 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Align(
-                              alignment: Alignment.topCenter,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 80.0),
-                                child: Container(
-                                  // color: Colors.green,
-                                  height: height  * 2.9,
-                                  child: GridView.builder(
-                                    physics: NeverScrollableScrollPhysics(),
-                                    padding: EdgeInsets.symmetric(horizontal: 30),
-                                    gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 1, // Number of columns
-                                      // crossAxisSpacing: 50,
-                                      mainAxisSpacing: 50,
-                                      childAspectRatio:
-                                      .95, // Match Container aspect ratio
-                                    ),
-                                    itemCount: 6,
-                                    // Number of containers
-                                    itemBuilder: (context, index) {
-                                      return GetBuilder<ScrollControllerX>(
-                                          builder: (controller) {
-                                            return LayoutBuilder(
-                                                builder: (context, constraints) {
-                                                  double textHeightPerLine =
-                                                  20; // Approximate height per line
-                                                  int maxLines =
-                                                  20; // Adjust dynamically based on content
-                                                  double estimatedHeight = (textHeightPerLine *
-                                                      maxLines) +
-                                                      250; // Base container height + text height
-                                                  double childAspectRatio =
-                                                      constraints.maxWidth /
-                                                          estimatedHeight;
 
-                                                  return MouseRegion(
-                                                      /*onEnter: (_) {
+                            Padding(
+                              padding: const EdgeInsets.only(top: 80.0),
+                              child: Container(
+                                // color: Colors.green,
+                                height: height  * 2.9,
+                                child: GridView.builder(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  padding: EdgeInsets.symmetric(horizontal: 20),
+                                  gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 1, // Number of columns
+                                    // crossAxisSpacing: 50,
+                                    mainAxisSpacing: 50,
+                                    /*childAspectRatio:
+                                    .95,*/ // Match Container aspect ratio
+                                  ),
+                                  itemCount: 6,
+                                  // Number of containers
+                                  itemBuilder: (context, index) {
+                                    return GetBuilder<ScrollControllerX>(
+                                        builder: (controller) {
+                                          return LayoutBuilder(
+                                              builder: (context, constraints) {
+                                                double textHeightPerLine =
+                                                20; // Approximate height per line
+                                                int maxLines =
+                                                20; // Adjust dynamically based on content
+                                                double estimatedHeight = (textHeightPerLine *
+                                                    maxLines) +
+                                                    250; // Base container height + text height
+                                                double childAspectRatio =
+                                                    constraints.maxWidth /
+                                                        estimatedHeight;
+
+                                                return MouseRegion(
+                                                  /*onEnter: (_) {
                                                         controller.zoomIn(index);
                                                         // controller.toggleAnimation(index, forward: true);
                                                       },
@@ -728,7 +727,7 @@ class HomeScreen extends StatelessWidget {
                                                         controller.toggleAnimation(index,
                                                             forward: false);
                                                       },*/
-                                                      /*onEnter: (_) =>
+                                                  /*onEnter: (_) =>
                                               controller.zoomIn(index),
                                           onExit: (_) =>
                                               controller.zoomOut(index),
@@ -738,61 +737,60 @@ class HomeScreen extends StatelessWidget {
                                         onExit: (_) =>
                                             controller.toggleAnimation(index,
                                                 forward: false),*/
-                                                      child: AnimatedBuilder(
-                                                        animation: controller
-                                                            .zoomAnimations[index],
-                                                        builder: (context, child) {
-                                                          return Transform.scale(
-                                                            scale: controller
-                                                                .zoomAnimations[index]
-                                                                .value,
-                                                            child: AnimatedBuilder(
-                                                                animation: controller
-                                                                    .animations[index],
-                                                                builder: (context, child) {
-                                                                  return InkWell(
-                                                                    highlightColor:
-                                                                    Colors.transparent,
-                                                                    splashColor:
-                                                                    Colors.transparent,
-                                                                    onTap: () => controller
-                                                                        .toggleAnimation1(
-                                                                      index,
-                                                                    ),
-                                                                    child: Transform(
-                                                                        alignment:
-                                                                        FractionalOffset
-                                                                            .center,
-                                                                        transform: Matrix4
-                                                                            .identity()
-                                                                          ..setEntry(
-                                                                              3, 2, 0.0015)
-                                                                          ..rotateY(pi *
-                                                                              controller
-                                                                                  .animations[
-                                                                              index]
-                                                                                  .value),
-                                                                        child: controller
-                                                                            .animations[
-                                                                        index]
-                                                                            .value <=
-                                                                            0.5
-                                                                            ? _buildSkillFrontSide(
-                                                                            maxLines,
-                                                                            index,
-                                                                            controller, context)
-                                                                            : _buildSkillBackSide(
-                                                                            index,
-                                                                            controller)),
-                                                                  );
-                                                                }),
-                                                          );
-                                                        },
-                                                      ));
-                                                });
-                                          });
-                                    },
-                                  ),
+                                                    child: AnimatedBuilder(
+                                                      animation: controller
+                                                          .zoomAnimations[index],
+                                                      builder: (context, child) {
+                                                        return Transform.scale(
+                                                          scale: controller
+                                                              .zoomAnimations[index]
+                                                              .value,
+                                                          child: AnimatedBuilder(
+                                                              animation: controller
+                                                                  .animations[index],
+                                                              builder: (context, child) {
+                                                                return InkWell(
+                                                                  highlightColor:
+                                                                  Colors.transparent,
+                                                                  splashColor:
+                                                                  Colors.transparent,
+                                                                  onTap: () => controller
+                                                                      .toggleAnimation1(
+                                                                    index,
+                                                                  ),
+                                                                  child: Transform(
+                                                                      alignment:
+                                                                      FractionalOffset
+                                                                          .center,
+                                                                      transform: Matrix4
+                                                                          .identity()
+                                                                        ..setEntry(
+                                                                            3, 2, 0.0015)
+                                                                        ..rotateY(pi *
+                                                                            controller
+                                                                                .animations[
+                                                                            index]
+                                                                                .value),
+                                                                      child: controller
+                                                                          .animations[
+                                                                      index]
+                                                                          .value <=
+                                                                          0.5
+                                                                          ? _buildSkillFrontSide(
+                                                                          maxLines,
+                                                                          index,
+                                                                          controller, context)
+                                                                          : _buildSkillBackSide(
+                                                                          index,
+                                                                          controller)),
+                                                                );
+                                                              }),
+                                                        );
+                                                      },
+                                                    ));
+                                              });
+                                        });
+                                  },
                                 ),
                               ),
                             ),
@@ -1093,12 +1091,12 @@ class HomeScreen extends StatelessWidget {
                               alignment: Alignment.topCenter,
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 80.0),
-                                child: Container(
+                                child: SizedBox(
                                   // color: Colors.green,
-                                  height: height * 1.9,
+                                  height: height * 2.1,
                                   child: GridView.builder(
                                     physics: NeverScrollableScrollPhysics(),
-                                    padding: EdgeInsets.symmetric(horizontal: 40),
+                                    padding: EdgeInsets.symmetric(horizontal: 20),
                                     gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                       crossAxisCount: 1,
