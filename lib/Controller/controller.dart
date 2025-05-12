@@ -274,7 +274,7 @@ class ScrollControllerX extends GetxController
       selectedNavItem.value = section; // Update the selected nav item
     }
   }
-
+//=====================================
   void zoomIn(int index) {
     zoomControllers[index].forward();
   }
@@ -282,6 +282,19 @@ class ScrollControllerX extends GetxController
   void zoomOut(int index) {
     zoomControllers[index].reverse();
   }
+  //===================================
+
+  var isHovered = false.obs;
+
+  void onEnter(bool hover) => isHovered.value = hover;
+//==========================
+  var isHovered2 = false.obs;
+
+  void onEnter2(bool hover) => isHovered2.value = hover;
+  //==========================
+  var isHoveredScrollTop = false.obs;
+
+  void onEnterScrollTop(bool hover) => isHoveredScrollTop.value = hover;
 
   //=================flip==========
   void toggleAnimation(int index, {required bool forward}) {

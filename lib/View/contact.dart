@@ -8,13 +8,20 @@ import 'package:mr_portfolio/themeColor.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Contact extends StatelessWidget {
-   Contact({super.key});
+  Contact({super.key});
 
   final ScrollControllerX controller = Get.put(ScrollControllerX());
+
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery
+        .of(context)
+        .size
+        .width;
+    var height = MediaQuery
+        .of(context)
+        .size
+        .height;
     return Responsive(
       mobile: Container(
         key: controller.contactKey,
@@ -32,7 +39,8 @@ class Contact extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  Image.asset("assets/Project_Image/contact.png", height: height*.4,),
+                  Image.asset(
+                    "assets/Project_Image/contact.png", height: height * .4,),
                   Gap(30),
                   MyText(
                     text: "LET'S WORK TOGETHER",
@@ -184,14 +192,18 @@ class Contact extends StatelessWidget {
             Align(
               child: Padding(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.width /
+                  top: MediaQuery
+                      .of(context)
+                      .size
+                      .width /
                       (16 / 9) *
                       0.1, // Adjust multiplier as needed
                 ),
                 child: Center(
                   child: Column(
                     children: [
-                      Image.asset("assets/Project_Image/contact.png", height: height*.4,),
+                      Image.asset("assets/Project_Image/contact.png",
+                        height: height * .4,),
                       Gap(30),
                       MyText(
                         text: "LET'S WORK TOGETHER",
@@ -349,14 +361,18 @@ class Contact extends StatelessWidget {
             Align(
               child: Padding(
                 padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.width /
+                  top: MediaQuery
+                      .of(context)
+                      .size
+                      .width /
                       (16 / 9) *
                       0.1, // Adjust multiplier as needed
                 ),
                 child: Center(
                   child: Column(
                     children: [
-                      Image.asset("assets/Project_Image/contact.png", height: height*.6,),
+                      Image.asset("assets/Project_Image/contact.png",
+                        height: height * .6,),
                       Gap(30),
                       MyText(
                         text: "LET'S WORK TOGETHER",
@@ -386,46 +402,58 @@ class Contact extends StatelessWidget {
                                 print("Could not launch email app");
                               }
                             },
-                            child: Container(
-                              height: 45,
-                              width: 330,
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.circular(18),
-                                color:
-                                secondaryColor.withOpacity(.9),
-                                boxShadow: [
-                                  BoxShadow(
-                                    spreadRadius: .8,
-                                    blurRadius: 5,
-                                    offset: Offset(-5, 5),
-                                    color: Colors.black12,
+                            child: MouseRegion(
+                              onEnter: (_) => controller.onEnter(true),
+                              onExit: (_) => controller.onEnter(false),
+                              child: Obx(() {
+                                return AnimatedScale(
+                                  scale: controller.isHovered.value
+                                      ? 1.1
+                                      : 1.0,
+                                  duration: Duration(milliseconds: 200),
+                                  child: Container(
+                                    height: 45,
+                                    width: 330,
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(18),
+                                      color:
+                                      secondaryColor.withOpacity(.9),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          spreadRadius: .8,
+                                          blurRadius: 5,
+                                          offset: Offset(-5, 5),
+                                          color: Colors.black12,
+                                        ),
+                                        BoxShadow(
+                                          spreadRadius: .8,
+                                          blurRadius: 5,
+                                          offset: Offset(.5, -.5),
+                                          color: Colors.white24,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.mail_outline,
+                                          color: Colors.white,
+                                          size: 25,
+                                        ),
+                                        Gap(20),
+                                        MyText(
+                                          text: "hirfan0307@gmail.com",
+                                          fontSize: 20,
+                                          textColor: Colors.white,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  BoxShadow(
-                                    spreadRadius: .8,
-                                    blurRadius: 5,
-                                    offset: Offset(.5, -.5),
-                                    color: Colors.white24,
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.mail_outline,
-                                    color: Colors.white,
-                                    size: 25,
-                                  ),
-                                  Gap(20),
-                                  MyText(
-                                    text: "hirfan0307@gmail.com",
-                                    fontSize: 20,
-                                    textColor: Colors.white,
-                                  ),
-                                ],
-                              ),
+                                );
+                              }),
                             ),
                           ),
 
@@ -447,45 +475,57 @@ class Contact extends StatelessWidget {
                                 print("Could not launch WhatsApp");
                               }
                             },
-                            child: Container(
-                              height: 45,
-                              width: 230,
-                              decoration: BoxDecoration(
-                                borderRadius:
-                                BorderRadius.circular(18),
-                                color:
-                                secondaryColor.withOpacity(.9),
-                                boxShadow: [
-                                  BoxShadow(
-                                    spreadRadius: .8,
-                                    blurRadius: 5,
-                                    offset: Offset(-5, 5),
-                                    color: Colors.black12,
+                            child: MouseRegion(
+                              onEnter: (_) => controller.onEnter2(true),
+                              onExit: (_) => controller.onEnter2(false),
+                              child: Obx(() {
+                                return AnimatedScale(
+                                  scale: controller.isHovered2.value
+                                      ? 1.1
+                                      : 1.0,
+                                  duration: Duration(milliseconds: 200),
+                                  child: Container(
+                                    height: 45,
+                                    width: 230,
+                                    decoration: BoxDecoration(
+                                      borderRadius:
+                                      BorderRadius.circular(18),
+                                      color:
+                                      secondaryColor.withOpacity(.9),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          spreadRadius: .8,
+                                          blurRadius: 5,
+                                          offset: Offset(-5, 5),
+                                          color: Colors.black12,
+                                        ),
+                                        BoxShadow(
+                                          spreadRadius: .8,
+                                          blurRadius: 5,
+                                          offset: Offset(.5, -.5),
+                                          color: Colors.white24,
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          "assets/img/whatsapp.png",
+                                          width: 25,
+                                        ),
+                                        Gap(20),
+                                        MyText(
+                                          text: "9360673455",
+                                          fontSize: 20,
+                                          textColor: Colors.white,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  BoxShadow(
-                                    spreadRadius: .8,
-                                    blurRadius: 5,
-                                    offset: Offset(.5, -.5),
-                                    color: Colors.white24,
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                MainAxisAlignment.center,
-                                children: [
-                                  Image.asset(
-                                    "assets/img/whatsapp.png",
-                                    width: 25,
-                                  ),
-                                  Gap(20),
-                                  MyText(
-                                    text: "9360673455",
-                                    fontSize: 20,
-                                    textColor: Colors.white,
-                                  ),
-                                ],
-                              ),
+                                );
+                              }),
                             ),
                           ),
                         ],

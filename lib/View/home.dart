@@ -420,23 +420,33 @@ class HomeScreen extends StatelessWidget {
                 bottom: Responsive.isMobile(context) ? 40 : 100,
                 right: Responsive.isMobile(context) ? 20 : 60,
                 child: Obx(() {
-                  return Visibility(
-                    visible: controller.isButtonVisible.value,
-                    child: InkWell(
-                      highlightColor: Colors.transparent,
-                      splashColor: Colors.transparent,
-                      onTap: controller.scrollToTop,
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          color: primaryColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          Icons.keyboard_arrow_up,
-                          size: 28,
-                          color: secondaryColor,
+                  return MouseRegion(
+                    onEnter: (_) => controller.onEnterScrollTop(true),
+                    onExit: (_) => controller.onEnterScrollTop(false),
+                    child: AnimatedScale(
+                      scale: controller.isHoveredScrollTop.value
+                          ? 1.1
+                          : 1.0,
+                      duration: Duration(milliseconds: 200),
+                      child: Visibility(
+                        visible: controller.isButtonVisible.value,
+                        child: InkWell(
+                          highlightColor: Colors.transparent,
+                          splashColor: Colors.transparent,
+                          onTap: controller.scrollToTop,
+                          child: Container(
+                            height: 40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                              color: primaryColor,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.keyboard_arrow_up,
+                              size: 28,
+                              color: secondaryColor,
+                            ),
+                          ),
                         ),
                       ),
                     ),
