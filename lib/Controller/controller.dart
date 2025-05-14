@@ -84,7 +84,8 @@ import 'package:video_player/video_player.dart';
     }
 
     // Show/hide back-to-top button
-    */ /*bool shouldShowButton = currentOffset > 100;
+    */
+/*bool shouldShowButton = currentOffset > 100;
     if (shouldShowButton != isButtonVisible.value) {
       isButtonVisible.value = shouldShowButton;
     }*/ /*
@@ -110,27 +111,6 @@ import 'package:video_player/video_player.dart';
 
 class ScrollControllerX extends GetxController
     with GetTickerProviderStateMixin {
-  /*var selectedIndex = 0.obs; // Tracks selected navbar item
-  var hoverIndex = (-1).obs; // Tracks hovered navbar item
-  ScrollController scrollController = ScrollController();
-
-  var selectedNavItem = "Home".obs; // Stores the selected item
-  var hoverNavItem = "".obs; // Stores the hovered item
-
-  final homeKey = GlobalKey();
-  final aboutUsKey = GlobalKey();
-  final whatIDoKey = GlobalKey();
-  final portfolioKey = GlobalKey();
-  final contactKey = GlobalKey();
-
-  void scrollToSection(GlobalKey key, String item) {
-    selectedNavItem.value = item; // Set the selected item
-    Scrollable.ensureVisible(
-      key.currentContext!,
-      duration: Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
-  }*/
 //=========================================================
   final ScrollController scrollController = ScrollController();
 
