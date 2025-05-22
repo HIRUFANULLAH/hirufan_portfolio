@@ -1,113 +1,13 @@
 import 'dart:async';
-import 'dart:io';
+import 'dart:convert';
 import 'dart:html' as html;
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:open_file/open_file.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
-
-/*class SafatechController extends GetxController {
-  final PageController pageController = PageController();
-  final ScrollController scrollController = ScrollController();
-  Map<int, RxBool> hoverStates = {};
-
-//---------------------desktop-----------------------
-  final GlobalKey screen1Key = GlobalKey();
-  final GlobalKey screen2Key = GlobalKey();
-  final GlobalKey screen3Key = GlobalKey();
-  final GlobalKey screen4Key = GlobalKey();
-  final GlobalKey screen5Key = GlobalKey();
-
-  //====================================================
-  RxInt selectedIndex = 0.obs;
-  RxBool isExpanded = false.obs;
-  var isExpandedList = <bool>[].obs;
-
-  late Map<GlobalKey, double> scrollPositions;
-  Timer? timer;
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-//================================================================
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController phoneNumberController = TextEditingController();
-  final TextEditingController subController = TextEditingController();
-  final TextEditingController messageController = TextEditingController();
-
-  final GlobalKey<FormState> contactformkey = GlobalKey<FormState>();
-
-//================================================================
-  @override
-  void onInit() {
-    super.onInit();
-    scrollPositions = {
-      screen1Key: 0, //home
-      screen2Key: 1000.0, //about us
-      screen3Key: 810.0 + 1000.0, //product
-      screen4Key: 810.0 + 850.0 + 1000.0, //service
-      screen5Key: 810.0 + 850.0 + 899.0 + 1000.0, //contact us
-      */
-/*screen1Key: 0, //home
-      screen2Key: 1080.0, //about us
-      screen3Key: 1080.0 + 1080.0, //product
-      screen4Key: 1080.0 + 1080.0 + 1080.0, //service
-      screen5Key: 1080.0 + 1080.0 + 1080.0 + 1080.0, //contact us*/
-/*
-    };
-    scrollController.addListener(scrollListener);
-    //============================================================
-  }
-
-  void scrollListener() {
-    double currentOffset = scrollController.offset;
-    GlobalKey? activeKey;
-
-    for (var entry in scrollPositions.entries) {
-      double position = entry.value;
-      if (currentOffset >= position) {
-        activeKey = entry.key;
-      } else {
-        break;
-      }
-    }
-
-    if (activeKey != null) {
-      int newIndex = scrollPositions.keys.toList().indexOf(activeKey);
-      if (newIndex != selectedIndex.value) {
-        selectedIndex.value = newIndex;
-      }
-    }
-
-    // Show/hide back-to-top button
-    */
-/*bool shouldShowButton = currentOffset > 100;
-    if (shouldShowButton != isButtonVisible.value) {
-      isButtonVisible.value = shouldShowButton;
-    }*/ /*
-  }
-
-  void scrollToPosition(double offset) {
-    scrollController.animateTo(
-      offset,
-      duration: const Duration(seconds: 1),
-      curve: Curves.easeInOut,
-    );
-  }
-
-  void scrollToTop() {
-    scrollController.animateTo(
-      0,
-      duration: const Duration(seconds: 1),
-      curve: Curves.easeInOut,
-    );
-  }
-}*/
-//=============================controller 2====================
 
 class ScrollControllerX extends GetxController
     with GetTickerProviderStateMixin {
@@ -134,8 +34,9 @@ class ScrollControllerX extends GetxController
   ChewieController? chewieController;
   RxBool isInitialized = false.obs;
 
+
   @override
-  void onInit() {
+  Future<void> onInit() async {
     super.onInit();
     scrollController.addListener(() {
       if (scrollController.offset > 100) {
@@ -197,26 +98,7 @@ class ScrollControllerX extends GetxController
       autoInitialize: true,
       showControls: false,
     );
-
-    /*videoPlayerController =
-        VideoPlayerController.asset("assets/videos/bg_video.mp4")
-          ..initialize().then((_) {
-            videoPlayerController.setLooping(true);
-            videoPlayerController.play();
-            isInitialized.value = true;
-            isInitialized.refresh(); // Force UI rebuild
-          }).catchError((error) {
-            print("Video initialization error: $error");
-          });*/
-
-    /*videoPlayerController =
-        VideoPlayerController.asset('assets/videos/bg_video.mp4')
-          ..initialize().then((_) {
-            videoPlayerController.setLooping(true);
-            videoPlayerController.play();
-            update(); // Update UI once the video is ready
-          });*/
-  }
+  }//onInit End
 
   void _onScroll() {
     double offset = scrollController.offset;
@@ -226,13 +108,14 @@ class ScrollControllerX extends GetxController
     } else if (_isInView(aboutUsKey)) {
       selectedNavItem.value = "About";
     } else if (_isInView(whatIDoKey)) {
-      selectedNavItem.value = "My Skill";
+      selectedNavItem.value = "My Skills";
     } else if (_isInView(portfolioKey)) {
       selectedNavItem.value = "Portfolio";
     } else if (_isInView(contactKey)) {
       selectedNavItem.value = "Contact";
     }
   }
+
 
   bool _isInView(GlobalKey key) {
     final RenderBox? renderBox =
@@ -304,14 +187,28 @@ class ScrollControllerX extends GetxController
     }
     videoPlayerController.dispose();
     chewieController?.dispose();
-    // videoPlayerController.dispose();
     super.onClose();
   }
 
-  Future<void> downloadCV() async {
+  //=====================CV download function==========
+
+  Future<String?> getCountryFromIP() async {
+    try {
+      final response = await http.get(Uri.parse('http://ip-api.com/json/'));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        return data['country']; // e.g., "India"
+      }
+    } catch (e) {
+      print('Failed to fetch country: $e');
+    }
+    return null;
+  }
+
+  /*Future<void> downloadCV() async {
     try {
       // Load PDF file from assets
-      ByteData data = await rootBundle.load("assets/pdf/HIRUFANULLAH_CV.pdf");
+      ByteData data = await rootBundle.load("assets/pdf/Hirufan_CV.pdf");
       Uint8List bytes = data.buffer.asUint8List();
 
       // Convert to Blob
@@ -322,11 +219,43 @@ class ScrollControllerX extends GetxController
 
       // Create a hidden anchor element
       final anchor = html.AnchorElement(href: url)
-        ..setAttribute("download", "HIRUFANULLAH_CV.pdf")
+        ..setAttribute("download", "Hirufan_CV.pdf")
         ..click(); // Auto-click to trigger download
 
       // Release the object URL after the download
       html.Url.revokeObjectUrl(url);
+    } catch (e) {
+      Get.snackbar("Error", "Failed to download CV: $e");
+    }
+  }*/
+
+  Future<void> downloadCV() async {
+    try {
+      // Step 1: Detect user country using IP geolocation API
+      final response = await http.get(Uri.parse('https://ipapi.co/json/'));
+      String country = 'Unknown';
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        country = data['country_name'] ?? 'Unknown';
+      }
+
+      // Step 2: Decide which PDF to load
+      String pdfPath = country == "India"
+          ? "assets/pdf/HIRUFANULLAH_CV.pdf"
+          : "assets/pdf/Hirufan_CV.pdf";
+
+      // Step 3: Load selected PDF from assets
+      ByteData data = await rootBundle.load(pdfPath);
+      Uint8List bytes = data.buffer.asUint8List();
+
+      // Step 4: Convert to Blob and download
+      final blob = html.Blob([bytes]);
+      final url = html.Url.createObjectUrlFromBlob(blob);
+      final anchor = html.AnchorElement(href: url)
+        ..setAttribute("download", pdfPath.split('/').last)
+        ..click();
+      html.Url.revokeObjectUrl(url);
+
     } catch (e) {
       Get.snackbar("Error", "Failed to download CV: $e");
     }
@@ -405,11 +334,10 @@ class ScrollControllerX extends GetxController
         paragraph:
             "The Kuwait Amateur Radio Society (KARS), founded in 1979, promotes amateur radio activities in Kuwait. It offers training courses for licensing exams and organizes local and international competitions. The society’s website provides training registration, news, events, and member details. KARS is affiliated with the International Amateur Radio Union (IARU) and issues special call signs for national events. Membership categories include active, ordinary, and honorary members. The headquarters feature advanced radio equipment, a library, and a postal office. KARS engages in community outreach to promote amateur radio. It collaborates with global radio societies to enhance knowledge-sharing. The society actively participates in national celebrations. KARS plays a crucial role in sustaining Kuwait’s amateur radio culture."),
     PortfolioList(
-        heading: "Inventory Management",
-        image: "assets/Project_Image/inventory_management.png",
+        heading: "Ummati",
+        image: "assets/Project_Image/ummati.png",
         paragraph:
-            "An Inventory Management System with POS Integration is a complete solution that streamlines stock management while ensuring smooth sales transactions. It allows businesses to track inventory in real-time, automate stock updates upon sales, and prevent shortages or overstocking. The Point of Sale (POS) module enables seamless billing, barcode scanning, and payment processing across multiple platforms like Android, Windows, and web. Key features include product categorization, supplier management, purchase order tracking, stock alerts, and detailed sales and inventory reports. With role-based access, business owners, cashiers, and inventory managers can monitor stock levels, analyze sales trends, and optimize purchasing decisions, enhancing overall efficiency and profitability."),
-  ];
+            "The Ummati App is a feature-rich Islamic lifestyle application designed to support the spiritual and daily needs of the Muslim community. It offers essential tools such as an Imaan Tracker, accurate prayer timings, and a Qibla Finder—especially useful when traveling. Users can also locate nearby masjids with ease, view real-time weather conditions along with the Hijri date, and access a user-friendly Quran reader and a wide collection of Hadiths. With its intuitive design and practical features, the app serves as a valuable companion for Muslims around the world.")  ];
 }
 
 class SkillList {
