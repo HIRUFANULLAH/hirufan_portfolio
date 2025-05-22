@@ -230,6 +230,7 @@ class ScrollControllerX extends GetxController
   }*/
 
   Future<void> downloadCV() async {
+
     try {
       // Step 1: Detect user country using IP geolocation API
       final response = await http.get(Uri.parse('https://ipapi.co/json/'));
@@ -237,6 +238,7 @@ class ScrollControllerX extends GetxController
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         country = data['country_name'] ?? 'Unknown';
+        print("Country=====$country");
       }
 
       // Step 2: Decide which PDF to load

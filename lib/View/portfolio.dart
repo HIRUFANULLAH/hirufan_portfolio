@@ -258,11 +258,12 @@ class Portfolio extends StatelessWidget {
         // color: Colors.red,
         key: controller.portfolioKey,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Align(
               alignment: Alignment.topCenter,
               child: Padding(
-                padding: const EdgeInsets.only(top: 20.0),
+                padding: const EdgeInsets.only(top: 20.0, bottom: 80),
                 child: MyText(
                   text: "Portfolio",
                   fontSize: 50,
@@ -271,104 +272,88 @@ class Portfolio extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 80.0),
-                child: Container(
-                  // color: Colors.green,
-                  height: height / (16 / 9) * 3.4,
-                  child: GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    padding: EdgeInsets.symmetric(horizontal: 180),
-                    gridDelegate:
-                    SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 50,
-                      mainAxisSpacing: 80,
-                      childAspectRatio: 1.4,
-                    ),
-                    itemCount: 6,
-                    itemBuilder: (context, index) {
-                      return GetBuilder<ScrollControllerX>(
-                        builder: (controller) {
-                          return MouseRegion(
-                              onEnter: (_) {
-                                controller.zoomIn(index);
-                                // controller.toggleAnimation(index, forward: true);
-                              },
-                              onExit: (_) {
-                                controller.zoomOut(index);
-                                controller.toggleAnimation(index,
-                                    forward: false);
-                              },
-
-                              /*onEnter: (_) =>
-                                              controller.zoomIn(index),
-                                          onExit: (_) =>
-                                              controller.zoomOut(index),
-                                          onEnter: (_) =>
-                                            controller.toggleAnimation(index,
-                                                forward: true),
-                                        onExit: (_) =>
-                                            controller.toggleAnimation(index,
-                                                forward: false),*/
-                              child: AnimatedBuilder(
-                                  animation: controller
-                                      .zoomAnimations[index],
-                                  builder: (context, child) {
-                                    return Transform.scale(
-                                      scale: controller
-                                          .zoomAnimations[index]
-                                          .value,
-                                      child: AnimatedBuilder(
-                                        animation: controller
-                                            .animations[index],
-                                        builder: (context, child) {
-                                          return InkWell(
-                                            highlightColor:
-                                            Colors.transparent,
-                                            splashColor:
-                                            Colors.transparent,
-                                            onTap: () => controller
-                                                .toggleAnimation1(
-                                              index,
-                                            ),
-                                            child: Transform(
-                                              alignment:
-                                              FractionalOffset
-                                                  .center,
-                                              transform: Matrix4
-                                                  .identity()
-                                                ..setEntry(
-                                                    3, 2, 0.0015)
-                                                ..rotateY(pi *
-                                                    controller
-                                                        .animations[
-                                                    index]
-                                                        .value),
-                                              child: controller
-                                                  .animations[
-                                              index]
-                                                  .value <=
-                                                  0.5
-                                                  ? _buildPortfolioFrontSide(
-                                                  index,
-                                                  controller, context)
-                                                  : _buildPortfolioBackSide(
-                                                  index,
-                                                  controller),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    );
-                                  }));
-                        },
-                      );
-                    },
-                  ),
+            Flexible(
+              fit: FlexFit.loose,
+              // color: Colors.green,
+              // height: height * 2.15,
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.symmetric(horizontal: 180),
+                gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 50,
+                  mainAxisSpacing: 80,
+                  childAspectRatio: 1.4,
                 ),
+                itemCount: 6,
+                itemBuilder: (context, index) {
+                  return GetBuilder<ScrollControllerX>(
+                    builder: (controller) {
+                      return MouseRegion(
+                          onEnter: (_) {
+                            controller.zoomIn(index);
+                          },
+                          onExit: (_) {
+                            controller.zoomOut(index);
+                            controller.toggleAnimation(index,
+                                forward: false);
+                          },
+                          child: 							AnimatedBuilder(
+                              animation: controller
+                                  .zoomAnimations[index],
+                              builder: (context, child) {
+                                return Transform.scale(
+                                  scale: controller
+                                      .zoomAnimations[index]
+                                      .value,
+                                  child: AnimatedBuilder(
+                                    animation: controller
+                                        .animations[index],
+                                    builder: (context, child) {
+                                      return InkWell(
+                                        highlightColor:
+                                        Colors.transparent,
+                                        splashColor:
+                                        Colors.transparent,
+                                        onTap: () => controller
+                                            .toggleAnimation1(
+                                          index,
+                                        ),
+                                        child: Transform(
+                                          alignment:
+                                          FractionalOffset
+                                              .center,
+                                          transform: Matrix4
+                                              .identity()
+                                            ..setEntry(
+                                                3, 2, 0.0015)
+                                            ..rotateY(pi *
+                                                controller
+                                                    .animations[
+                                                index]
+                                                    .value),
+                                          child: controller
+                                              .animations[
+                                          index]
+                                              .value <=
+                                              0.5
+                                              ? _buildPortfolioFrontSide(
+                                              index,
+                                              controller, context)
+                                              : _buildPortfolioBackSide(
+                                              index,
+                                              controller),
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                );
+                              }));
+                    },
+                  );
+                },
               ),
             ),
           ],
