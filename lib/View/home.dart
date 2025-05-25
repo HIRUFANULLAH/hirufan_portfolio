@@ -119,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: 26, vertical: 11.5),
+                                                horizontal: width* 0.06, vertical: height* 0.015),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                 BorderRadius.circular(8),
@@ -127,6 +127,7 @@ class HomeScreen extends StatelessWidget {
                                             child: MyText(
                                               text: "Let's Connect",
                                               textColor: Colors.white,
+                                              fontSize: width * 0.045,
                                             ),
                                           ),
                                         ),
@@ -137,7 +138,8 @@ class HomeScreen extends StatelessWidget {
                                           onTap: () => controller.downloadCV(),
                                           child: Container(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: 28, vertical: 10),
+                                              horizontal: width * 0.06,
+                                              vertical: height * 0.015,),
                                             decoration: BoxDecoration(
                                               borderRadius:
                                               BorderRadius.circular(8),
@@ -148,6 +150,7 @@ class HomeScreen extends StatelessWidget {
                                             child: MyText(
                                               text: "Download CV",
                                               textColor: primaryColor,
+                                              fontSize: width * 0.045,
                                             ),
                                           ),
                                         ),
@@ -569,8 +572,8 @@ class MyDrawer extends StatelessWidget {
           DrawerHeader(
             decoration: BoxDecoration(color: secondaryColor),
             child: Center(
-              child: Text("Menu",
-                  style: TextStyle(color: Colors.white, fontSize: 24)),
+              child: Text("Portfolio",
+                  style: TextStyle(color: primaryColor, fontSize: 24, fontWeight: FontWeight.bold)),
             ),
           ),
           _drawerItem("Home",
@@ -596,7 +599,8 @@ class MyDrawer extends StatelessWidget {
 
   Widget _drawerItem(String text, VoidCallback onTap) {
     return ListTile(
-      title: Text(text, style: TextStyle(color: Colors.white, fontSize: 18)),
+      title: Text(text, style: TextStyle(color: controller.selectedNavItem.value == text
+          ? primaryColor:Colors.white, fontSize: 18)),
       onTap: () {
         Navigator.pop(Get.context!); // Close drawer
         onTap();

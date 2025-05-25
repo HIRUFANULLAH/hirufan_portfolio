@@ -39,8 +39,14 @@ class Contact extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  Image.asset(
-                    "assets/Project_Image/contact.png", height: height * .4,),
+                  Container(
+                    height: height*.45,
+                    width: width*45,
+                    child: Image.asset(
+                      "assets/Project_Image/contact.png",
+                      // height: height * .4,
+                    ),
+                  ),
                   Gap(30),
                   MyText(
                     text: "LET'S WORK TOGETHER",
