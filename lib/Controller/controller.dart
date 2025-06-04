@@ -243,8 +243,8 @@ class ScrollControllerX extends GetxController
 
       // Step 2: Decide which PDF to load
       String pdfPath = country == "India"
-          ? "assets/pdf/HIRUFANULLAH_CV.pdf"
-          : "assets/pdf/Hirufan_CV.pdf";
+          ? "assets/pdf/Mr_CV.pdf"
+          : "assets/pdf/Mr_CV.pdf";
 
       // Step 3: Load selected PDF from assets
       ByteData data = await rootBundle.load(pdfPath);
@@ -276,6 +276,11 @@ class ScrollControllerX extends GetxController
       curve: Curves.easeInOut,
     );
   }
+
+  //=====================glow effect====================
+  RxBool isHoveringConnect = false.obs;
+  RxBool isHoveringDownload = false.obs;
+  //====================================================
 
   List<SkillList> skillsList = [
     SkillList(

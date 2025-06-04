@@ -23,8 +23,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery
+        .of(context)
+        .size
+        .width;
+    var height = MediaQuery
+        .of(context)
+        .size
+        .height;
 
     return Stack(
       children: [
@@ -40,7 +46,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.transparent, // Ensures transparency
           appBar: ResponsiveAppBar(),
           drawer: MyDrawer(),
-          body:Stack(
+          body: Stack(
             children: [
               // Overlay
               Container(color: Colors.black.withOpacity(.6)),
@@ -86,8 +92,8 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                     Gap(10),
                                     Container(
-                                      height: height*.45,
-                                      width: width*45,
+                                      height: height * .45,
+                                      width: width * 45,
                                       decoration: BoxDecoration(
                                         // border: Border.all(color: Colors.white),
                                       ),
@@ -107,7 +113,8 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                     Gap(20),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      mainAxisAlignment: MainAxisAlignment
+                                          .spaceEvenly,
                                       children: [
                                         InkWell(
                                           highlightColor: Colors.transparent,
@@ -119,7 +126,8 @@ class HomeScreen extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: EdgeInsets.symmetric(
-                                                horizontal: width* 0.06, vertical: height* 0.015),
+                                                horizontal: width * 0.06,
+                                                vertical: height * 0.015),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                 BorderRadius.circular(8),
@@ -171,19 +179,26 @@ class HomeScreen extends StatelessWidget {
                               alignment: Alignment.center,
                               child: Padding(
                                 padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.width /
+                                  top: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width /
                                       (16 / 10) *
                                       0.12, // Adjust multiplier as needed
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 14.0),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceAround,
                                     children: [
                                       Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .start,
+                                        mainAxisAlignment: MainAxisAlignment
+                                            .center,
                                         children: [
                                           MyText(
                                             text: "Hi. I'm",
@@ -206,7 +221,7 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           Gap(10),
                                           SizedBox(
-                                            width: width*.5,
+                                            width: width * .5,
                                             child: MyText(
                                               text:
                                               "I am a passionate Flutter Developer with experience in building high-performance, visually appealing, and scalable mobile applications for Android, iOS, Windows and web. My expertise lies in Dart, Flutter, Firebase, and GetX, ensuring efficient state management and seamless user experiences.",
@@ -219,7 +234,8 @@ class HomeScreen extends StatelessWidget {
                                           Row(
                                             children: [
                                               InkWell(
-                                                highlightColor: Colors.transparent,
+                                                highlightColor: Colors
+                                                    .transparent,
                                                 splashColor: Colors.transparent,
                                                 onTap: () {
                                                   controller.scrollToSection(
@@ -228,7 +244,8 @@ class HomeScreen extends StatelessWidget {
                                                 },
                                                 child: Container(
                                                   padding: EdgeInsets.symmetric(
-                                                      horizontal: 28, vertical: 11.5),
+                                                      horizontal: 28,
+                                                      vertical: 11.5),
                                                   decoration: BoxDecoration(
                                                       borderRadius:
                                                       BorderRadius.circular(8),
@@ -241,12 +258,15 @@ class HomeScreen extends StatelessWidget {
                                               ),
                                               Gap(50),
                                               InkWell(
-                                                highlightColor: Colors.transparent,
+                                                highlightColor: Colors
+                                                    .transparent,
                                                 splashColor: Colors.transparent,
-                                                onTap: () => controller.downloadCV(),
+                                                onTap: () =>
+                                                    controller.downloadCV(),
                                                 child: Container(
                                                   padding: EdgeInsets.symmetric(
-                                                      horizontal: 28, vertical: 10),
+                                                      horizontal: 28,
+                                                      vertical: 10),
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                     BorderRadius.circular(8),
@@ -265,8 +285,8 @@ class HomeScreen extends StatelessWidget {
                                         ],
                                       ),
                                       Container(
-                                        height: height*.38,
-                                        width: width*.38,
+                                        height: height * .38,
+                                        width: width * .38,
                                         decoration: BoxDecoration(
                                           // border: Border.all(color: Colors.white),
                                         ),
@@ -289,19 +309,26 @@ class HomeScreen extends StatelessWidget {
                               alignment: Alignment.center,
                               child: Padding(
                                 padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.width /
+                                  top: MediaQuery
+                                      .of(context)
+                                      .size
+                                      .width /
                                       (16 / 9) *
                                       0.16, // Adjust multiplier as needed
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 14.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 14.0),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment: MainAxisAlignment
+                                        .spaceAround,
                                     children: [
                                       Column(
                                         mainAxisSize: MainAxisSize.min,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment
+                                            .start,
+                                        mainAxisAlignment: MainAxisAlignment
+                                            .center,
                                         children: [
                                           MyText(
                                             text: "Hi. I'm",
@@ -313,7 +340,7 @@ class HomeScreen extends StatelessWidget {
                                             text: "HIRUFANULLAH",
                                             textColor: Colors.white,
                                             fontWeight: FontWeight.bold,
-                                            fontSize: 30,
+                                            fontSize: 36,
                                           ),
                                           Gap(5),
                                           MyText(
@@ -324,7 +351,7 @@ class HomeScreen extends StatelessWidget {
                                           ),
                                           Gap(10),
                                           SizedBox(
-                                            width: width*.47,
+                                            width: width * .47,
                                             child: MyText(
                                               text:
                                               "I am a passionate Flutter Developer with experience in building high-performance, visually appealing, and scalable mobile applications for Android, iOS, Windows and web. My expertise lies in Dart, Flutter, Firebase, and GetX, ensuring efficient state management and seamless user experiences.",
@@ -334,7 +361,7 @@ class HomeScreen extends StatelessWidget {
                                             ),
                                           ),
                                           Gap(20),
-                                          Row(
+                                          /*Row(
                                             children: [
                                               InkWell(
                                                 highlightColor: Colors.transparent,
@@ -379,12 +406,129 @@ class HomeScreen extends StatelessWidget {
                                                 ),
                                               ),
                                             ],
+                                          )*/
+                                          Row(
+                                            children: [
+                                              // Let's Connect Button
+                                              MouseRegion(
+                                                onEnter: (_) {
+                                                  controller.isHoveringConnect
+                                                      .value = true;
+                                                  controller.onEnter(true);
+                                                },
+                                                onExit: (_) {
+                                                  controller.isHoveringConnect
+                                                      .value = false;
+                                                  controller.onEnter(false);
+                                                },
+                                                child: Obx(() =>
+                                                    AnimatedScale(
+                                                      scale: controller
+                                                          .isHovered.value
+                                                          ? 1.1
+                                                          : 1.0,
+                                                      duration: Duration(
+                                                          milliseconds: 200),
+                                                      child: InkWell(
+                                                        highlightColor: Colors
+                                                            .transparent,
+                                                        splashColor: Colors
+                                                            .transparent,
+                                                        onTap: () {
+                                                          controller
+                                                              .scrollToSection(
+                                                              controller
+                                                                  .contactKey,
+                                                              "Contact");
+                                                        },
+                                                        child: Container(
+                                                          padding: const EdgeInsets
+                                                              .symmetric(
+                                                              horizontal: 28,
+                                                              vertical: 11.5),
+                                                          decoration: BoxDecoration(
+                                                            borderRadius: BorderRadius
+                                                                .circular(8),
+                                                            color: primaryColor,
+                                                            boxShadow: controller
+                                                                .isHoveringConnect
+                                                                .value
+                                                                ? [
+                                                              BoxShadow(
+                                                                color: primaryColor
+                                                                    .withOpacity(
+                                                                    0.6),
+                                                                blurRadius: 12,
+                                                                spreadRadius: 1,
+                                                              ),
+                                                            ]
+                                                                : [],
+                                                          ),
+                                                          child: MyText(
+                                                            text: "Let's Connect",
+                                                            textColor: Colors
+                                                                .white,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )),
+                                              ),
+
+                                              const Gap(50),
+
+                                              // Download CV Button
+                                              InkWell(
+                                                highlightColor: Colors
+                                                    .transparent,
+                                                splashColor: Colors.transparent,
+                                                onTap: () =>
+                                                    controller.downloadCV(),
+                                                child: Obx(() {
+                                                  return MouseRegion(
+                                                    onEnter: (_) =>
+                                                        controller.onEnter2(
+                                                            true),
+                                                    onExit: (_) =>
+                                                        controller.onEnter2(
+                                                            false),
+                                                    child: AnimatedScale(
+                                                      scale: controller
+                                                          .isHovered2.value
+                                                          ? 1.1
+                                                          : 1.0,
+                                                      duration: Duration(
+                                                          milliseconds: 200),
+                                                      child: Container(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                            horizontal: 28,
+                                                            vertical: 10),
+                                                        decoration: BoxDecoration(
+                                                          borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                          border: Border.all(
+                                                              color: primaryColor,
+                                                              width: 1.5),
+                                                        ),
+                                                        child: MyText(
+                                                          text: "Download CV",
+                                                          textColor: primaryColor,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                }),
+                                              ),
+
+                                            ],
                                           )
+
                                         ],
                                       ),
                                       Container(
-                                        height: height*.6,
-                                        width: height*.6,
+                                        height: height * .6,
+                                        width: height * .6,
                                         decoration: BoxDecoration(
                                           // border: Border.all(color: Colors.white),
                                         ),
@@ -400,19 +544,19 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Gap(Responsive.isMobile(context)?30:100),
+                    Gap(Responsive.isMobile(context) ? 30 : 100),
                     //=====About
                     About(),
-                    Gap(Responsive.isMobile(context)?30:100),
+                    Gap(Responsive.isMobile(context) ? 30 : 100),
                     //=====My_Skills
                     MySkills(),
-                    Gap(Responsive.isMobile(context)?30:100),
+                    Gap(Responsive.isMobile(context) ? 30 : 100),
                     //=====Portfolio
                     Portfolio(),
-                    Gap(Responsive.isMobile(context)?30:100),
+                    Gap(Responsive.isMobile(context) ? 30 : 100),
                     //=====Contact
                     Contact(),
-                    Gap(Responsive.isMobile(context)?30:100),
+                    Gap(Responsive.isMobile(context) ? 30 : 100),
                     //=====Footer
                     Footer(),
                   ],
@@ -471,7 +615,10 @@ class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+    var width = MediaQuery
+        .of(context)
+        .size
+        .width;
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -483,46 +630,56 @@ class ResponsiveAppBar extends StatelessWidget implements PreferredSizeWidget {
           foregroundColor: Colors.transparent,
           backgroundColor: Colors.black.withOpacity(.6),
           toolbarHeight: 80,
-          leadingWidth: isMobile ? null : width*0.2,
+          leadingWidth: isMobile ? null : width * 0.2,
           leading: isMobile
               ? IconButton(
             icon: Icon(Icons.menu, color: primaryColor),
             onPressed: () => Scaffold.of(context).openDrawer(),
           )
-              : SizedBox(width: width*.2),
+              : SizedBox(width: width * .2),
           title: isMobile
               ? Row(
             mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyText(text: "Portfolio", fontWeight: FontWeight.bold, fontSize: 26, textColor: primaryColor),
-                ],
-              ) // Hide navigation items in AppBar for mobile
+            children: [
+              MyText(text: "Portfolio",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                  textColor: primaryColor),
+            ],
+          ) // Hide navigation items in AppBar for mobile
               : Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _navItem(
                   "Home",
-                      () => controller.scrollToSection(
-                      controller.homeKey, "Home")),
+                      () =>
+                      controller.scrollToSection(
+                          controller.homeKey, "Home")),
               _navItem(
                   "About",
-                      () => controller.scrollToSection(
-                      controller.aboutUsKey, "About")),
+                      () =>
+                      controller.scrollToSection(
+                          controller.aboutUsKey, "About")),
               _navItem(
                   "My Skills",
-                      () => controller.scrollToSection(
-                      controller.whatIDoKey, "My Skills")),
+                      () =>
+                      controller.scrollToSection(
+                          controller.whatIDoKey, "My Skills")),
               _navItem(
                   "Portfolio",
-                      () => controller.scrollToSection(
-                      controller.portfolioKey, "Portfolio")),
+                      () =>
+                      controller.scrollToSection(
+                          controller.portfolioKey, "Portfolio")),
               _navItem(
                   "Contact",
-                      () => controller.scrollToSection(
-                      controller.contactKey, "Contact")),
+                      () =>
+                      controller.scrollToSection(
+                          controller.contactKey, "Contact")),
             ],
           ),
-          actions: isMobile ? [SizedBox(width: width*0.15)] : [SizedBox(height: 70, width: width*0.2)],
+          actions: isMobile ? [SizedBox(width: width * 0.15)] : [
+            SizedBox(height: 70, width: width * 0.2)
+          ],
         );
       },
     );
@@ -573,21 +730,26 @@ class MyDrawer extends StatelessWidget {
             decoration: BoxDecoration(color: secondaryColor),
             child: Center(
               child: Text("Portfolio",
-                  style: TextStyle(color: primaryColor, fontSize: 24, fontWeight: FontWeight.bold)),
+                  style: TextStyle(color: primaryColor,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold)),
             ),
           ),
           _drawerItem("Home",
                   () => controller.scrollToSection(controller.homeKey, "Home")),
           _drawerItem("About",
-                  () => controller.scrollToSection(controller.aboutUsKey, "About")),
+                  () =>
+                  controller.scrollToSection(controller.aboutUsKey, "About")),
           _drawerItem(
               "My Skills",
-                  () => controller.scrollToSection(
-                  controller.whatIDoKey, "My Skills")),
+                  () =>
+                  controller.scrollToSection(
+                      controller.whatIDoKey, "My Skills")),
           _drawerItem(
               "Portfolio",
-                  () => controller.scrollToSection(
-                  controller.portfolioKey, "Portfolio")),
+                  () =>
+                  controller.scrollToSection(
+                      controller.portfolioKey, "Portfolio")),
           _drawerItem(
               "Contact",
                   () =>
@@ -599,8 +761,9 @@ class MyDrawer extends StatelessWidget {
 
   Widget _drawerItem(String text, VoidCallback onTap) {
     return ListTile(
-      title: Text(text, style: TextStyle(color: controller.selectedNavItem.value == text
-          ? primaryColor:Colors.white, fontSize: 18)),
+      title: Text(
+          text, style: TextStyle(color: controller.selectedNavItem.value == text
+          ? primaryColor : Colors.white, fontSize: 18)),
       onTap: () {
         Navigator.pop(Get.context!); // Close drawer
         onTap();
