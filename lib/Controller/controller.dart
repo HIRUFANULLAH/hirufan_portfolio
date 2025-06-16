@@ -243,8 +243,8 @@ class ScrollControllerX extends GetxController
 
       // Step 2: Decide which PDF to load
       String pdfPath = country == "India"
-          ? "assets/pdf/Mr_CV.pdf"
-          : "assets/pdf/Mr_CV.pdf";
+          ? "assets/pdf/Mr_CV_1.pdf"
+          : "assets/pdf/Mr_CV_1.pdf";
 
       // Step 3: Load selected PDF from assets
       ByteData data = await rootBundle.load(pdfPath);
