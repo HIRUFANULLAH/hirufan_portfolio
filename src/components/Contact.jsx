@@ -1,6 +1,6 @@
 import { MdMailOutline } from 'react-icons/md'
 import Reveal from './Reveal'
-import { contact } from '../data'
+import { contact, asset } from '../data'
 
 export default function Contact() {
   const mailto = `mailto:${contact.email}?subject=Hello&body=Hi Hirufanullah, I would like to connect with you.`
@@ -23,7 +23,7 @@ export default function Contact() {
             {contact.email}
           </a>
           <a className="contact-chip" href={wa} target="_blank" rel="noreferrer">
-            <img src="/assets/img/whatsapp.png" alt="WhatsApp" />
+            <img src={asset('/assets/img/whatsapp.png')} alt="WhatsApp" />
             {contact.whatsapp.display}
           </a>
         </div>

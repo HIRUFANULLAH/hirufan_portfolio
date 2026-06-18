@@ -1,6 +1,6 @@
 import Reveal from './Reveal'
 import useCountUp from '../hooks/useCountUp'
-import { about, stats } from '../data'
+import { about, stats, asset } from '../data'
 
 function Stat({ value, suffix, label }) {
   const { ref, value: count } = useCountUp(value)
@@ -20,7 +20,7 @@ export default function About() {
     <section id="about" className="section">
       <div className="about-grid">
         <Reveal className="about-visual">
-          <img src="/assets/Project_Image/home.png" alt="Hirufanullah at work" />
+          <img src={asset('/assets/Project_Image/home.png')} alt="Hirufanullah at work" />
         </Reveal>
 
         <div>
