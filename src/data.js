@@ -1,85 +1,162 @@
-// Portfolio content — refreshed copy, kept factual (name, role, real projects, contact)
+// Portfolio content — sourced from Hirufanullah's CV (resume).
 
-// Prefix asset URLs with the Vite base path so they work both at the dev root
-// ('/') and when deployed to a GitHub Pages subpath ('/hirufan_portfolio/').
+// Base-aware asset URL so paths work at the dev root and the GH-Pages subpath.
 export const asset = (p) => import.meta.env.BASE_URL + p.replace(/^\//, '')
 
 export const profile = {
   name: 'Hirufanullah',
+  title: 'Software Developer',
   roles: [
     'Flutter Developer',
+    'Cross-Platform Engineer',
     'Mobile App Developer',
-    'Web Designer',
     'UI / UX Designer',
   ],
-  tagline:
-    'I craft high-performance, beautiful cross-platform apps for mobile, web & desktop — powered by Flutter, Dart, Firebase & GetX.',
+  location: 'Dubai, UAE',
+  summary:
+    'Flutter & software developer with 2+ years of experience building scalable, cross-platform applications for Android, iOS, Windows and web. Skilled in Dart, Flutter, React.js, REST & GraphQL APIs and Clean Architecture — with a sharp eye for responsive UI/UX and performance.',
   image: asset('/assets/Project_Image/homeScreen.png'),
 }
 
 export const stats = [
-  { value: 6, suffix: '+', label: 'Projects Shipped' },
+  { value: 2, suffix: '+', label: 'Years Experience' },
+  { value: 9, suffix: '+', label: 'Apps Shipped' },
   { value: 4, suffix: '', label: 'Platforms' },
-  { value: 6, suffix: '+', label: 'Technologies' },
-  { value: 100, suffix: '%', label: 'Dedication' },
+  { value: 15, suffix: '+', label: 'Technologies' },
 ]
 
 export const about = {
   paragraphs: [
-    'I’m a passionate, detail-oriented Flutter Developer dedicated to crafting seamless, user-friendly applications. With a strong grasp of UI/UX principles, I build products that are visually polished, highly functional and accessible.',
-    'My expertise spans Dart, state management, REST API integration and performance optimization — the building blocks of smooth, engaging experiences. Great development, to me, goes beyond code: it solves real problems and creates meaningful interactions.',
-    'Across diverse projects I’ve shipped intuitive apps aligned with both business goals and user needs, grounded in clean architecture and best practices so every product stays scalable, efficient and user-centric.',
+    'I’m a passionate, detail-oriented developer who turns ideas into seamless, production-ready apps. From single-codebase Flutter products to responsive web, I care about clean architecture, smooth motion and experiences that simply feel right.',
+    'I’ve delivered 9+ production applications across two companies — parking systems, accounting & procurement platforms, POS and more — integrating REST/GraphQL APIs, AI-powered features and automation workflows while collaborating closely with design and backend teams.',
+  ],
+  facts: [
+    { label: 'Location', value: 'Dubai, UAE' },
+    { label: 'Experience', value: '2+ Years' },
+    { label: 'Languages', value: 'Tamil · English' },
+    { label: 'Availability', value: 'Open to work' },
   ],
 }
 
 export const skills = [
+  { heading: 'Flutter', image: asset('/assets/img/flutter.png'), level: 95, blurb: 'Natively compiled apps for mobile, web & desktop from one codebase.' },
+  { heading: 'Dart', image: asset('/assets/img/dart.png'), level: 92, blurb: 'The fast, strongly-typed language powering every Flutter product.' },
+  { heading: 'React.js', image: asset('/assets/img/react.svg'), level: 85, blurb: 'Building fast, responsive web interfaces with React and modern tooling.' },
+  { heading: 'REST & GraphQL', image: asset('/assets/img/rest_api.png'), level: 90, blurb: 'Designing & integrating scalable, secure APIs with clean data flow.' },
+  { heading: 'Firebase', image: asset('/assets/img/firebase.png'), level: 88, blurb: 'Auth, Firestore, storage, FCM & hosting for real-time backends.' },
+  { heading: 'Figma', image: asset('/assets/img/figma.png'), level: 82, blurb: 'Turning UI/UX designs into pixel-perfect, production interfaces.' },
+]
+
+export const services = [
   {
-    heading: 'Flutter',
-    image: asset('/assets/img/flutter.png'),
-    level: 95,
-    blurb:
-      'Google’s open-source UI toolkit for natively compiled apps across mobile, web and desktop from a single codebase.',
+    icon: 'mobile',
+    title: 'Mobile Application',
+    desc: 'High-performance native Android & iOS apps built with Flutter from a single, scalable codebase.',
   },
   {
-    heading: 'Dart',
-    image: asset('/assets/img/dart.png'),
-    level: 92,
-    blurb:
-      'The modern, strongly-typed language behind Flutter — fast, null-safe and built for scalable applications.',
+    icon: 'windows',
+    title: 'Windows Application',
+    desc: 'Powerful cross-platform desktop apps for Windows with a native look, feel and performance.',
   },
   {
-    heading: 'GetX',
-    image: asset('/assets/img/getx.png'),
-    level: 90,
-    blurb:
-      'Lightweight reactive state management, routing and dependency injection with minimal boilerplate.',
+    icon: 'web',
+    title: 'Website',
+    desc: 'Responsive, modern websites and web apps crafted with Flutter Web and React.js.',
+  },
+]
+
+// Full tech list for the scrolling marquee.
+export const techStack = [
+  'Dart', 'Flutter', 'JavaScript', 'React.js', 'Python', 'HTML5', 'CSS3',
+  'Firebase', 'REST API', 'GraphQL', 'GetX', 'BLoC', 'Provider', 'Clean Architecture',
+  'MVVM', 'Tailwind CSS', 'Bootstrap', 'Node.js', 'Figma', 'Git', 'GitHub', 'GitLab',
+]
+
+export const experience = [
+  {
+    role: 'Software Developer',
+    company: 'Cave Technologies',
+    place: 'Dubai, UAE',
+    period: '09/2025 — Present',
+    points: [
+      'Designed scalable Flutter apps with GetX, BLoC & Clean Architecture.',
+      'Built & deployed 4+ production apps — parking, accounting & procurement platforms.',
+      'Integrated AI-powered features and automation workflows that boosted productivity.',
+      'Built responsive UI/UX components across multiple business departments.',
+    ],
   },
   {
-    heading: 'REST API',
-    image: asset('/assets/img/rest_api.png'),
-    level: 90,
-    blurb:
-      'Designing and integrating scalable, secure HTTP services with clean JSON data flow.',
+    role: 'Flutter Developer',
+    company: 'SAFATECH Integrated Solution',
+    place: 'Puducherry, India',
+    period: '03/2024 — 05/2025',
+    points: [
+      'Developed & maintained 5+ cross-platform apps for Android, iOS & Windows.',
+      'Integrated 15+ libraries, REST & GraphQL services — +20% feature delivery.',
+      'Improved load speed by 30% and UI responsiveness by 25%.',
+      'Implemented 100+ test cases, achieving 99% crash-free performance.',
+    ],
   },
   {
-    heading: 'Firebase',
-    image: asset('/assets/img/firebase.png'),
-    level: 88,
-    blurb:
-      'Auth, Firestore, cloud storage, push notifications and hosting for real-time, serverless backends.',
+    role: 'Intern — UI/UX & Flutter',
+    company: 'SAFATECH Integrated Solution',
+    place: 'Puducherry, India',
+    period: '03/2024 — 06/2024',
+    points: [
+      'Designed 20+ responsive UI screens in Figma and built them in Flutter.',
+      'Contributed to live projects from concept through deployment.',
+    ],
+  },
+]
+
+export const education = [
+  {
+    title: 'B.Sc — Computer Science',
+    org: 'Tagore Govt. Arts & Science College, Pondicherry University',
+    year: '2023',
   },
   {
-    heading: 'Figma',
-    image: asset('/assets/img/figma.png'),
-    level: 82,
-    blurb:
-      'Turning UI/UX designs and prototypes into pixel-perfect, production-ready interfaces.',
+    title: 'Higher Secondary School',
+    org: 'Jeevanandam Govt. Boys Higher Secondary School',
+    year: '2019',
   },
 ]
 
 export const projects = [
   {
-    heading: 'Restaurant POS App',
+    heading: 'Parking Management',
+    subtitle: 'Real-time Parking System',
+    image: asset('/assets/projects/parking.jpg'),
+    tags: ['Flutter', 'REST API', 'Windows'],
+    blurb:
+      'A parking-operations app with real-time slot updates and role-based access control, with a responsive UI deployed across mobile and Windows.',
+  },
+  {
+    heading: 'Accounting System',
+    subtitle: 'Finance & Reporting',
+    image: asset('/assets/projects/dashboard.jpg'),
+    tags: ['Flutter', 'GetX', 'Reports'],
+    blurb:
+      'A cross-platform accounting app with transaction management, structured data flows, financial reporting and exportable reports for finance teams.',
+  },
+  {
+    heading: 'Procurement Platform',
+    subtitle: 'Vendor & Purchase Management',
+    image: asset('/assets/projects/procurement.jpg'),
+    tags: ['Flutter', 'REST API', 'Workflows'],
+    blurb:
+      'Vendor and purchase-management modules with multi-stage approval workflows and integrated document management for purchase orders and vendor records.',
+  },
+  {
+    heading: 'Employee Management',
+    subtitle: 'Workforce Platform',
+    image: asset('/assets/projects/employee.jpg'),
+    tags: ['Flutter', 'Firebase', 'GetX'],
+    blurb:
+      'An all-in-one workforce platform — instant messaging, group meetings, document verification and employee attendance reporting, with role-based access.',
+  },
+  {
+    heading: 'Restaurant POS',
     subtitle: 'Point of Sale & Management',
     image: asset('/assets/projects/pos-app.jpg'),
     tags: ['Flutter', 'POS', 'REST API'],
@@ -95,14 +172,6 @@ export const projects = [
       'A marketing and onboarding website showcasing POS, inventory, scheduling and CRM features with demo requests and flexible plans.',
   },
   {
-    heading: 'Admin Dashboard',
-    subtitle: 'Organization Management',
-    image: asset('/assets/projects/dashboard.jpg'),
-    tags: ['Flutter', 'Firebase', 'Dashboards'],
-    blurb:
-      'Organization management for a training institute — courses, trainers, memberships, online payments and automated analytics with role-based access.',
-  },
-  {
     heading: 'Community Portal',
     subtitle: 'Public Society Website',
     image: asset('/assets/projects/portal.jpg'),
@@ -110,45 +179,24 @@ export const projects = [
     blurb:
       'A public society portal — training registration, news, events, membership details and special event listings for the community.',
   },
-  {
-    heading: 'Smart Parking App',
-    subtitle: 'Parking Management System',
-    image: asset('/assets/projects/parking.jpg'),
-    tags: ['Flutter', 'REST API', 'Windows'],
-    blurb:
-      'A parking-operations app with real-time slot updates and role-based access control, with a responsive UI deployed across mobile and Windows.',
-  },
-  {
-    heading: 'Employee Management',
-    subtitle: 'Workforce Platform',
-    image: asset('/assets/projects/employee.jpg'),
-    tags: ['Flutter', 'Firebase', 'GetX'],
-    blurb:
-      'An all-in-one workforce platform — instant messaging, group meetings, document verification and employee attendance reporting, with role-based access.',
-  },
-  {
-    heading: 'Procurement Platform',
-    subtitle: 'Vendor & Purchase Management',
-    image: asset('/assets/projects/procurement.jpg'),
-    tags: ['Flutter', 'REST API', 'Workflows'],
-    blurb:
-      'Vendor and purchase-management modules with multi-stage approval workflows and integrated document management for purchase orders and vendor records.',
-  },
 ]
 
-export const navItems = ['Home', 'About', 'Skills', 'Projects', 'Contact']
+export const navItems = ['Home', 'About', 'Skills', 'Services', 'Projects', 'Contact']
 
 export const sectionId = {
   Home: 'home',
   About: 'about',
   Skills: 'skills',
+  Services: 'services',
   Projects: 'projects',
   Contact: 'contact',
 }
 
 export const contact = {
   email: 'hirfan0307@gmail.com',
-  whatsapp: { number: '9360673455', display: '+971 54 564 5325' },
+  phone: '+971 54 564 5325',
+  location: 'Dubai, UAE',
+  whatsapp: { number: '971545645325', display: '+971 54 564 5325' },
   socials: {
     linkedin: 'https://linkedin.com/in/hirufanullah',
     github: 'https://github.com/HIRUFANULLAH',

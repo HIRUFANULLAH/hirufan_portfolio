@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
+import Tilt from 'react-parallax-tilt'
+import Marquee from 'react-fast-marquee'
 import Reveal from './Reveal'
-import { skills } from '../data'
+import { skills, techStack } from '../data'
 
 export default function Skills() {
   return (
@@ -18,15 +20,22 @@ export default function Skills() {
 
       <div className="skills-grid">
         {skills.map((skill, i) => (
-          <Reveal key={skill.heading} delay={0.06 * i}>
-            <article className="skill-card">
+          <Reveal key={skill.heading} delay={0.05 * i}>
+            <Tilt
+              tiltMaxAngleX={9}
+              tiltMaxAngleY={9}
+              glareEnable
+              glareMaxOpacity={0.16}
+              glareColor="#ff2d2d"
+              className="skill-card"
+            >
               <div className="skill-top">
                 <div className="skill-icon">
                   <img src={skill.image} alt={skill.heading} />
                 </div>
                 <div>
                   <div className="skill-name">{skill.heading}</div>
-                  <div className="skill-pct">{skill.level}% proficiency</div>
+                  <div className="skill-pct">{skill.level}%</div>
                 </div>
               </div>
               <p className="skill-blurb">{skill.blurb}</p>
@@ -39,9 +48,19 @@ export default function Skills() {
                   transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
                 />
               </div>
-            </article>
+            </Tilt>
           </Reveal>
         ))}
+      </div>
+
+      <div className="marquee-wrap">
+        <Marquee gradient={false} speed={42} pauseOnHover>
+          {techStack.map((t) => (
+            <span className="tech-chip" key={t}>
+              {t}
+            </span>
+          ))}
+        </Marquee>
       </div>
     </section>
   )

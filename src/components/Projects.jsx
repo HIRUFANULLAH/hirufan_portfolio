@@ -1,3 +1,4 @@
+import Tilt from 'react-parallax-tilt'
 import Reveal from './Reveal'
 import { projects } from '../data'
 
@@ -10,15 +11,22 @@ export default function Projects() {
           Featured <span className="gradient-text">Projects</span>
         </h2>
         <p className="section-sub">
-          A selection of cross-platform apps and web products I’ve designed and
-          built. Hover a card to read more.
+          A selection of cross-platform apps and web products I’ve built. Hover a
+          card to read more.
         </p>
       </Reveal>
 
       <div className="projects-grid">
         {projects.map((project, i) => (
-          <Reveal key={project.heading} delay={0.06 * (i % 2)}>
-            <article className="project-card">
+          <Reveal key={project.heading} delay={0.05 * (i % 3)}>
+            <Tilt
+              tiltMaxAngleX={7}
+              tiltMaxAngleY={7}
+              glareEnable
+              glareMaxOpacity={0.14}
+              glareColor="#ff2d2d"
+              className="project-card"
+            >
               <div className="project-media">
                 <img src={project.image} alt={project.heading} />
                 <div className="project-overlay">
@@ -36,7 +44,7 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-            </article>
+            </Tilt>
           </Reveal>
         ))}
       </div>

@@ -23,19 +23,13 @@ export default function Footer({ active, scrollTo }) {
         </nav>
 
         <div className="footer-social">
-          <a href={contact.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
-            <FaLinkedin />
-          </a>
-          <a href={contact.socials.github} target="_blank" rel="noreferrer" aria-label="GitHub">
-            <FaGithub />
-          </a>
-          <a href={`mailto:${contact.email}`} aria-label="Email">
-            <MdMailOutline />
-          </a>
+          <a href={contact.socials.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href={contact.socials.github} target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /></a>
+          <a href={`mailto:${contact.email}`} aria-label="Email"><MdMailOutline /></a>
         </div>
 
         <p className="footer-copy">
-          © 2025 <span>Hirufanullah</span>. Designed & built with React.
+          © 2026 <span>Hirufanullah</span>. Designed &amp; built with React.
         </p>
       </div>
     </footer>

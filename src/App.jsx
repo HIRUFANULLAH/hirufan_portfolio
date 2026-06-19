@@ -1,10 +1,12 @@
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
 import { FiChevronUp } from 'react-icons/fi'
 import Background from './components/Background'
+import ParticlesBg from './components/ParticlesBg'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Skills from './components/Skills'
+import Services from './components/Services'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -22,6 +24,7 @@ export default function App() {
   return (
     <>
       <Background />
+      <ParticlesBg />
       <motion.div className="scroll-progress" style={{ scaleX: progress, width: '100%' }} />
 
       <Navbar active={active} scrolled={scrolled} scrollTo={scrollTo} />
@@ -30,6 +33,7 @@ export default function App() {
         <Hero scrollTo={scrollTo} />
         <About />
         <Skills />
+        <Services />
         <Projects />
         <Contact />
       </main>
