@@ -22,7 +22,7 @@ export default function About() {
       <div className="about-grid">
         <Reveal>
           <Tilt tiltMaxAngleX={8} tiltMaxAngleY={8} glareEnable glareMaxOpacity={0.15} glareColor="#ff2d2d" className="about-visual">
-            <img src={asset('/assets/Project_Image/home.png')} alt="Hirufanullah" />
+            <img src={asset('/assets/img/profile-2.png')} alt="Hirufanullah" />
           </Tilt>
         </Reveal>
 

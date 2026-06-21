@@ -1,9 +1,10 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo, memo } from 'react'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 
 // Animated red particle network over the dark background.
-export default function ParticlesBg() {
+// Memoized so it mounts ONCE — re-rendering reloads the canvas and breaks scroll.
+function ParticlesBg() {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
@@ -41,3 +42,5 @@ export default function ParticlesBg() {
   if (!ready) return null
   return <Particles id="tsparticles" options={options} />
 }
+
+export default memo(ParticlesBg)

@@ -1,5 +1,5 @@
 import { MdMailOutline } from 'react-icons/md'
-import { FaLinkedin, FaGithub, FaWhatsapp, FaPhone } from 'react-icons/fa'
+import { FaLinkedin, FaGithub, FaWhatsapp } from 'react-icons/fa'
 import { FiArrowUpRight } from 'react-icons/fi'
 import Reveal from './Reveal'
 import { contact } from '../data'
@@ -11,13 +11,8 @@ export default function Contact() {
   const info = [
     { icon: <MdMailOutline />, label: 'Email', value: contact.email, href: mailto },
     {
-      icon: (
-        <>
-          <FaPhone size={14} />
-          <FaWhatsapp size={17} />
-        </>
-      ),
-      label: 'Call / WhatsApp',
+      icon: <FaWhatsapp />,
+      label: 'WhatsApp',
       value: contact.phone,
       href: wa,
     },

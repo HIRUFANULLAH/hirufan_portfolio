@@ -7,15 +7,15 @@ export const profile = {
   name: 'Hirufanullah',
   title: 'Software Developer',
   roles: [
+    'Software Developer',
     'Flutter Developer',
-    'Cross-Platform Engineer',
     'Mobile App Developer',
     'UI / UX Designer',
   ],
   location: 'Dubai, UAE',
   summary:
     'Flutter & software developer with 2+ years of experience building scalable, cross-platform applications for Android, iOS, Windows and web. Skilled in Dart, Flutter, React.js, REST & GraphQL APIs and Clean Architecture — with a sharp eye for responsive UI/UX and performance.',
-  image: asset('/assets/Project_Image/homeScreen.png'),
+  image: asset('/assets/img/profile.png'),
 }
 
 export const stats = [
@@ -127,7 +127,7 @@ export const projects = [
     heading: 'Parking Management',
     subtitle: 'Real-time Parking System',
     image: asset('/assets/projects/parking.jpg'),
-    tags: ['Flutter', 'REST API', 'Windows'],
+    tags: ['Mobile App'],
     blurb:
       'A parking-operations app with real-time slot updates and role-based access control, with a responsive UI deployed across mobile and Windows.',
   },
@@ -135,7 +135,7 @@ export const projects = [
     heading: 'Accounting System',
     subtitle: 'Finance & Reporting',
     image: asset('/assets/projects/dashboard.jpg'),
-    tags: ['Flutter', 'GetX', 'Reports'],
+    tags: ['Mobile App', 'Windows App'],
     blurb:
       'A cross-platform accounting app with transaction management, structured data flows, financial reporting and exportable reports for finance teams.',
   },
@@ -143,7 +143,7 @@ export const projects = [
     heading: 'Procurement Platform',
     subtitle: 'Vendor & Purchase Management',
     image: asset('/assets/projects/procurement.jpg'),
-    tags: ['Flutter', 'REST API', 'Workflows'],
+    tags: ['Mobile App'],
     blurb:
       'Vendor and purchase-management modules with multi-stage approval workflows and integrated document management for purchase orders and vendor records.',
   },
@@ -151,7 +151,7 @@ export const projects = [
     heading: 'Employee Management',
     subtitle: 'Workforce Platform',
     image: asset('/assets/projects/employee.jpg'),
-    tags: ['Flutter', 'Firebase', 'GetX'],
+    tags: ['Mobile App', 'Windows App'],
     blurb:
       'An all-in-one workforce platform — instant messaging, group meetings, document verification and employee attendance reporting, with role-based access.',
   },
@@ -159,7 +159,7 @@ export const projects = [
     heading: 'Restaurant POS',
     subtitle: 'Point of Sale & Management',
     image: asset('/assets/projects/pos-app.jpg'),
-    tags: ['Flutter', 'POS', 'REST API'],
+    tags: ['Windows App', 'Mobile App'],
     blurb:
       'A multi-platform POS and restaurant manager handling orders, billing, inventory and rich sales reporting across Android, Windows, tablet and web.',
   },
@@ -167,7 +167,7 @@ export const projects = [
     heading: 'Restaurant Website',
     subtitle: 'Product & Onboarding Site',
     image: asset('/assets/projects/website.jpg'),
-    tags: ['Flutter Web', 'Responsive', 'CRM'],
+    tags: ['Website'],
     blurb:
       'A marketing and onboarding website showcasing POS, inventory, scheduling and CRM features with demo requests and flexible plans.',
   },
@@ -175,7 +175,7 @@ export const projects = [
     heading: 'Community Portal',
     subtitle: 'Public Society Website',
     image: asset('/assets/projects/portal.jpg'),
-    tags: ['Flutter Web', 'REST API'],
+    tags: ['Windows App'],
     blurb:
       'A public society portal — training registration, news, events, membership details and special event listings for the community.',
   },
